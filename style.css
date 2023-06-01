@@ -1,0 +1,51 @@
+body {
+    background-color: #080808;
+    margin: 0;
+    width: 104w;
+}
+
+h1 {
+    color: red;
+    font-family: monospace;
+    text-align: center;
+    grid-area: header;
+}
+
+.gamegrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 50px 15px;
+    padding: 10px;
+
+
+}
+
+.gamegrid > div {
+    background-color: rgba(255, 255, 255, 0.03);
+    text-align: center;
+    padding: 20px 0;
+  }
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+.header {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 25px;
+}
+
+#item {
+    width: 200px;
+    height: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 25px;
+}
