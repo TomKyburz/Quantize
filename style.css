@@ -1,19 +1,17 @@
 body {
-    background-color: #080808;
+    background-color: #101010;
     margin: 0;
-    width: 104w;
 }
 
 h1 {
     color: red;
     font-family: monospace;
     text-align: center;
-    grid-area: header;
 }
 
 .gamegrid {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 50px 15px;
     padding: 10px;
 
@@ -21,7 +19,7 @@ h1 {
 }
 
 .gamegrid > div {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(255, 255, 255, 0.06);
     text-align: center;
     padding: 20px 0;
   }
@@ -32,11 +30,11 @@ img {
 }
 
 .header {
-    grid-column-start: 1;
-    grid-column-end: 6;
+    margin: 0 auto;  
     text-align: center;
     font-size: 25px;
     border-radius: 25px;
+    text-shadow: 0 2px 15px rgb(255 60 52);
 }
 
 #item {
