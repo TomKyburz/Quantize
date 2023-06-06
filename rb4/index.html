@@ -2,11 +2,30 @@
 <head>
     <title>Red Ball 4</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        button {
+          width: 50px;
+          height: 50px;
+          background-color: red;
+        }
+    </style>
 </head>
 <body>
+    <button id="simulateKeyPress">Simulate Key Press</button>
 <div>
     <embed src="Swordsouls.swf">
 </div>
+<script>
+    document.getElementById("simulateKeyPress").addEventListener("click", function() {
+  var event = new KeyboardEvent("keydown", {
+    key: "Enter", // Specify the key you want to simulate
+    keyCode: 13, // Specify the key code of the key you want to simulate
+    which: 13 // Specify the key code of the key you want to simulate
+  });
+
+  document.dispatchEvent(event);
+});
+    </script>
 <script src="ruffle/ruffle.js"></script>
 </body>
 </html>
