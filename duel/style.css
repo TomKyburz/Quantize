@@ -1,0 +1,29 @@
+body {
+    background: #101010;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 80vw;
+    height: 70vh;
+    margin: 0 auto;
+    margin-top: 10vh;
+    outline: rgb(66, 66, 66) solid 5px;
+}
+
+.header {
+    color: red;
+    text-align: center;
+    margin-top: 5vh;
+    font-family: monospace;
+    font-size: 25px;
+    text-shadow: 0 5px 15px red;
+}
+
+.game-canvas {
+    width: 80vw;
+    height: 70vh;
+}
