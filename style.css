@@ -7,7 +7,7 @@ h1 {
     color: red;
     font-family: monospace;
     text-align: center;
-    margin-left: 150px;
+    margin-left: 20px;
     width: 100vw;
 }
 
@@ -66,6 +66,6 @@ img {
 }
 
 .account {
-    width: 64px;
-    height: 64px;
+    width: 120px;
+    height: 120px;
 }
