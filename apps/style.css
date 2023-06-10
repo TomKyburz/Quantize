@@ -1,0 +1,38 @@
+body {
+    background-color: #101010;
+    margin: 0;
+}
+
+h1 {
+    color: red;
+    font-family: monospace;
+    text-align: center;
+    width: 100vw;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;  
+    text-align: center;
+    font-size: 3vh;
+    border-radius: 25px;
+    text-shadow: 0 2px 15px rgb(255 60 52);
+}
+
+.app {
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    margin-top: 30vh;
+}
+
+.key {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    /* margin-top: 20vh; */
+    background-color: red;
+    border-radius: 50%;
+}
