@@ -1,0 +1,17 @@
+{
+    "users": [
+        {
+            "userID": "1",
+            "playerName": "Tom",
+            "password": "1234",
+            "roles": ["doublejump", "energy blast"]
+        },
+
+        {
+            "userID": "2",
+            "playerName": "Player2",
+            "password": "1235",
+            "roles": ["doublejump"]
+        }
+    ]
+}

@@ -1,163 +1,213 @@
 const canvas = document.getElementById("canvasx");
 const c = canvas.getContext('2d');
 
-const width = canvas.width
-const height = canvas.height
+const form = document.getElementById('login');
 
-class Player {
-    constructor() {
-        this.width = 12
-        this.height = 10
-        
-        this.position = {
-            x: width / 2 - this.width / 2,
-            y: height / 2 - this.height / 2
-        }
-        
-        this.sides = {
-            bottom: this.position.y + this.height,
-        }
+fetch('players.json')
+  .then(response => response.json())
+  .then(data => {
+    // Use the loaded JSON data here
+    const userData = data;
+  })
+  .catch(error => {
+    // Handle any error that occurred during the fetch
+    console.error('Error:', error);
+  });
 
-        this.velocity = {
-            x: 0,
-            y: 0,
-        }
-        
-    }
+const backgroundImage = new Image();
+backgroundImage.src = 'img/background1.jpg'
 
-    draw() {
-        c.fillStyle = 'red';
-        c.fillRect(this.position.x, this.position.y, this.width, this.height);
-        }
+const width = canvas.width;
+const height = canvas.height;
 
-        
-    update() {
-        this.position.y += this.velocity.y;
-        this.position.x += this.velocity.x;
-        
-        if (this.position.y + this.height > height) {
-            this.position.y = height - this.height;
-            this.velocity.y = 0;
-        } else if (this.position.y < 0) {
-            this.position.y = 0;
-            this.velocity.y = 0;
-        }
-    
-        if (this.position.x + this.width > width) {
-            this.position.x = width - this.width;
-            this.velocity.x = 0;
-        } else if (this.position.x < 0) {
-            this.position.x = 0;
-                this.velocity.x = 0;
-            }
-        }
-    
-}
+const p = new Player();
+const h = new Hud();
+const buttons = [
+    new Button(10, height - 30, 'button1'),
+    new Button(54, height - 30, 'button2'),
+    new Button(width - 74, height - 30, 'button3'),
+    new Button(width - 34, height - 30, 'button4')
+];
 
-class Button {
-    constructor() {
-        this.width = 24
-        this.height = 20
-
-        this.position = {
-            x: 10,
-            y: height - 30
-        }
-    }
-
-    left() {
-        c.fillStyle = 'blue';
-        c.fillRect(this.position.x, this.position.y, this.width, this.height);
-    }
-
-    right() {
-        c.fillStyle = 'blue';
-        c.fillRect(this.position.x+40, this.position.y, this.width, this.height);
-    }
-
-    down() {
-        c.fillStyle = 'blue';
-        c.fillRect(width-74, this.position.y, this.width, this.height);
-    }
-
-    up() {
-        c.fillStyle = 'blue';
-        c.fillRect(width-34, this.position.y, this.width, this.height);
-    }
-}
-
-const p = new Player()
-const b = new Button()
+const projectiles = [];
 
 function animate() {
-    window.requestAnimationFrame(animate)
-    c.fillStyle = 'black';
+    window.requestIdleCallback(animate);
+    c.fillStyle = 'darkblue';
     c.fillRect(0, 0, width, height);
+    // c.drawImage(backgroundImage, 0,0, width, height);
+    p.draw();
+    h.draw();
+    p.update();
 
-    p.draw()
-    p.update()
+    projectiles.forEach(projectile => {
+        projectile.update();
+        projectile.draw();
+    });
 
-    b.left()
-    b.right()
+    buttons.forEach(button => {
+        button.draw();
+    });
 
-    b.down()
-    b.up()
+    
 }
 
-animate()
+animate();
+
+// ...
+
+function handleMouseDown(e) {
+    const offset = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - offset.left;
+    const mouseY = e.clientY - offset.top;
+  
+    buttons.forEach(button => {
+      if (
+        mouseX >= button.position.x &&
+        mouseX <= button.position.x + button.width &&
+        mouseY >= button.position.y &&
+        mouseY <= button.position.y + button.height
+      ) {
+        console.log('Button ' + button.id + ' down');
+        // Perform button-specific actions here
+        switch (button.id) {
+          case 'button1':
+            console.log('left down');
+            break;
+          case 'button2':
+            // Code for button 2
+            break;
+          case 'button3':
+            // Code for button 3
+            break;
+          case 'button4':
+            // Code for button 4
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  }
+  
+  function handleMouseUp(e) {
+    const offset = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - offset.left;
+    const mouseY = e.clientY - offset.top;
+  
+    buttons.forEach(button => {
+      if (
+        mouseX >= button.position.x &&
+        mouseX <= button.position.x + button.width &&
+        mouseY >= button.position.y &&
+        mouseY <= button.position.y + button.height
+      ) {
+        console.log('Button ' + button.id + ' up');
+        // Perform button-specific actions here
+        switch (button.id) {
+          case 'button1':
+            // Code for button 1
+            break;
+          case 'button2':
+            // Code for button 2
+            break;
+          case 'button3':
+            // Code for button 3
+            break;
+          case 'button4':
+            // Code for button 4
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  }
+  
+  
+
+window.onload = () => {
+    const element = document.getElementById('game-container')
+    element.style.backgroundColor = "darkblue";
+}
+
+function toggleScreen(id, toggle) {
+    let element = document.getElementById(id);
+    let display = ( toggle ) ? "block" : "none";
+    element.style.display = display;
+}
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+  
+    // Access form inputs by their IDs
+    const nameInput = document.getElementById('un');
+    const pwdInput = document.getElementById('pw');
+  
+    // Get the values entered in the form
+    let name = nameInput.value;
+    let pwd = pwdInput.value;
+  
+    // Load the JSON data
+    fetch('players.json')
+      .then(response => response.json())
+      .then(data => {
+        // Check if the entered username and password exist in the JSON data
+        const users = data.users;
+        const foundUser = users.find(user => user.playerName === name && user.password === pwd);
+  
+        if (foundUser) {
+          console.log('Access granted');
+          toggleScreen('start-screen', false);
+          toggleScreen('canvasx', true);
+          h.setPlayerName(name);
+        } else {
+          console.log('Access denied');
+          alert('Username or password is incorrect');
+        }
+      })
+      .catch(error => {
+        // Handle any error that occurred during the fetch
+        console.error('Error:', error);
+      });
+  
+    // Reset the form fields
+    form.reset();
+  });
+
+function credits() {
+    window.location.href = '../credits.html';
+}
+
+document.addEventListener('click', handleMouseDown);
+document.addEventListener('click', handleMouseUp);
 
 window.addEventListener('keydown', (e) => {
     switch (e.key) {
         case 'ArrowLeft':
-            p.velocity.x = -5;
+            p.moveLeft();
             break;
         case 'ArrowRight':
-            p.velocity.x = 5;
+            p.moveRight();
             break;
         case 'ArrowUp':
-            p.velocity.y = -5;
+            p.jump();
             break;
-        case 'ArrowDown':
-            p.velocity.y = 5;
+        case ' ':
+            p.fireProjectile();
             break;
     }
 });
 
-function handleMouseDown(e) {
-    const rect = canvas.getBoundingClientRect();
-    const canvasX = e.clientX - rect.left;
-    const canvasY = e.clientY - rect.top;
-  
-    if (
-      canvasX >= b.position.x &&
-      canvasX <= b.position.x + b.width &&
-      canvasY >= b.position.y &&
-      canvasY <= b.position.y + b.height
-    ) {
-      p.velocity.x = -5;
-    } else if (
-      canvasX >= b.position.x + 40 &&
-      canvasX <= b.position.x + b.width + 40 &&
-      canvasY >= b.position.y &&
-      canvasY <= b.position.y + b.height
-    ) {
-      p.velocity.x = 5;
-    } else if (
-      canvasX >= width - 74 &&
-      canvasX <= width - 74 + b.width &&
-      canvasY >= b.position.y &&
-      canvasY <= b.position.y + b.height
-    ) {
-      p.velocity.y = 5;
-    } else if (
-      canvasX >= width - 34 &&
-      canvasX <= width - 34 + b.width &&
-      canvasY >= b.position.y &&
-      canvasY <= b.position.y + b.height
-    ) {
-      p.velocity.y = -5;
+window.addEventListener('keyup', (e) => {
+    switch (e.key) {
+        case 'ArrowLeft':
+            if (p.velocity.x < 0)
+                p.velocity.x = 0;
+            break;
+        case 'ArrowRight':
+            if (p.velocity.x > 0)
+                p.velocity.x = 0;
+            break;
     }
-  }
-  
-  window.addEventListener('mousedown', handleMouseDown);
-  console.log(e)
+});
