@@ -137,26 +137,32 @@ function toggleScreen(id, toggle) {
     element.style.display = display;
 }
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-  
-    // Access form inputs by their IDs
-    const nameInput = document.getElementById('un');
-    const pwdInput = document.getElementById('pw');
-  
-    // Get the values entered in the form
-    let name = nameInput.value;
-    let pwd = pwdInput.value;
-  
-    // Load the JSON data
-    fetch('players.json')
-      .then(response => response.json())
-      .then(data => {
-        // Check if the entered username and password exist in the JSON data
-        const users = data.users;
-        const foundUser = users.find(user => user.playerName === name && user.password === pwd);
-  
-        if (foundUser) {
+form.addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Access form inputs by their IDs
+  const nameInput = document.getElementById('un');
+  const pwdInput = document.getElementById('pw');
+
+  // Get the values entered in the form
+  let name = nameInput.value;
+  let pwd = pwdInput.value;
+
+  // Simulate an asynchronous request with setTimeout
+  setTimeout(() => {
+    // Replace the fetch call with your actual API endpoint
+    fetch('https://example.com/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, pwd }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Check if the entered username and password exist in the response
+        const success = data.success;
+        if (success) {
           console.log('Access granted');
           toggleScreen('start-screen', false);
           toggleScreen('canvasx', true);
@@ -166,14 +172,16 @@ form.addEventListener('submit', function(event) {
           alert('Username or password is incorrect');
         }
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle any error that occurred during the fetch
         console.error('Error:', error);
+      })
+      .finally(() => {
+        // Reset the form fields
+        form.reset();
       });
-  
-    // Reset the form fields
-    form.reset();
-  });
+  }, 1000); // Simulate a delay of 1 second for the request
+});
 
 function credits() {
     window.location.href = '../credits.html';
