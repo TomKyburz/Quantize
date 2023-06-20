@@ -1,25 +1,8 @@
 const canvas = document.getElementById("canvasx");
 const c = canvas.getContext('2d');
-
-const form = document.getElementById('login');
-
-fetch('players.json')
-  .then(response => response.json())
-  .then(data => {
-    // Use the loaded JSON data here
-    const userData = data;
-  })
-  .catch(error => {
-    // Handle any error that occurred during the fetch
-    console.error('Error:', error);
-  });
-
-const backgroundImage = new Image();
-backgroundImage.src = 'img/background1.jpg'
-
+const form = document.getElementById('login')
 const width = canvas.width;
 const height = canvas.height;
-
 const p = new Player();
 const h = new Hud();
 const buttons = [
@@ -27,9 +10,13 @@ const buttons = [
     new Button(54, height - 30, 'button2'),
     new Button(width - 74, height - 30, 'button3'),
     new Button(width - 34, height - 30, 'button4')
-];
-
+];g
 const projectiles = [];
+
+window.onload = () => {
+    const element = document.getElementById('game-container')
+    element.style.backgroundColor = "darkblue";
+}
 
 function animate() {
     window.requestIdleCallback(animate);
@@ -123,13 +110,6 @@ function handleMouseDown(e) {
       }
     });
   }
-  
-  
-
-window.onload = () => {
-    const element = document.getElementById('game-container')
-    element.style.backgroundColor = "darkblue";
-}
 
 function toggleScreen(id, toggle) {
     let element = document.getElementById(id);
@@ -151,7 +131,7 @@ form.addEventListener('submit', function (event) {
   // Simulate an asynchronous request with setTimeout
   setTimeout(() => {
     // Replace the fetch call with your actual API endpoint
-    fetch('https://example.com/login', {
+    fetch('https://quantize/duel/players.json', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
