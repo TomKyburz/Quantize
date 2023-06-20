@@ -20,7 +20,7 @@ body {
     width: 80vw;
     height: 70vh;
     margin: 0 auto;
-    margin-top: 10vh;
+    margin-top: 20px;
     outline: rgb(66, 66, 66) solid 5px;
     max-width: 100%;
 }
