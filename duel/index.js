@@ -10,7 +10,7 @@ const buttons = [
     new Button(54, height - 30, 'button2'),
     new Button(width - 74, height - 30, 'button3'),
     new Button(width - 34, height - 30, 'button4')
-];g
+];
 const projectiles = [];
 
 window.onload = () => {
