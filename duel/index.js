@@ -5,8 +5,10 @@ const height = canvas.height;
 
 window.onload = () => {
     const element = document.getElementById('game-container')
-    element.style.backgroundColor = "lightblue";
+    element.style.backgroundColor = "darkblue";
 }
+
+
 
 function credits() {
     window.location.href = '../credits.html';
