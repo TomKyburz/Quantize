@@ -11,7 +11,7 @@ const player = {
   height: 30,
   color: "red",
   velocityY: 0,
-  gravity: 1,
+  gravity: 0.5,
 };
 
 window.onload = () => {
