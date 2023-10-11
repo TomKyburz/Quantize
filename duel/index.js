@@ -15,7 +15,7 @@ const projectiles = [];
 
 window.onload = () => {
     const element = document.getElementById('game-container')
-    element.style.backgroundColor = "darkblue";
+    element.style.backgroundColor = "lightblue";
 }
 
 function animate() {
