@@ -1,43 +1,61 @@
 const canvas = document.getElementById("canvas");
-const c = canvas.getContext("2d");
-const width = canvas.width;
-const height = canvas.height;
+const ctx = canvas.getContext("2d");
 
-// Player settings
-const player = {
-  x: width / 2,
-  y: height / 2,
-  width: 30,
-  height: 30,
-  color: "red",
-  velocityY: 0,
-  gravity: 0.5,
+// Define player properties
+let player = {
+  x: 50,
+  y: 50,
+  width: 50,
+  height: 50,
+  speed: 5,
+  jumping: false,
 };
 
-window.onload = () => {
-  animate();
-};
-
-function animate() {
-  // Clear the canvas
-  c.clearRect(0, 0, width, height);
-
-  // Update player position
-  player.velocityY += player.gravity;
-  player.y += player.velocityY;
-
-  // Check if the player hits the bottom
-  if (player.y + player.height >= height) {
-    player.y = height - player.height;
-    player.velocityY = 0; // Stop when hitting the bottom
-  }
-
-  // Draw the player
-  c.fillStyle = player.color;
-  c.fillRect(player.x, player.y, player.width, player.height);
-
-  // Request animation frame
-  requestAnimationFrame(animate);
+// Draw the player on the canvas
+function drawPlayer() {
+  ctx.fillStyle = "blue";
+  ctx.fillRect(player.x, player.y, player.width, player.height);
 }
 
-// You can add user input handling to make the player jump or move left/right.
+// Move the player
+function movePlayer() {
+  if (rightPressed && player.x < canvas.width - player.width) {
+    player.x += player.speed;
+  } else if (leftPressed && player.x > 0) {
+    player.x -= player.speed;
+  }
+
+  if (jumpPressed && !player.jumping) {
+    player.jumping = true;
+    player.yVelocity = -player.speed * 2;
+  }
+
+  if (player.jumping) {
+    player.yVelocity += 0.2;
+    player.y += player.yVelocity;
+
+    if (player.y > canvas.height - player.height) {
+      player.jumping = false;
+      player.y = canvas.height - player.height;
+      player.yVelocity = 0;
+    }
+  }
+}
+
+// Game loop
+function gameLoop() {
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the player
+  drawPlayer();
+
+  // Move the player
+  movePlayer();
+
+  // Call gameLoop again
+  requestAnimationFrame(gameLoop);
+}
+
+// Start the game loop
+requestAnimationFrame(gameLoop);
