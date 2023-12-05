@@ -25,7 +25,7 @@ body {
     max-width: 100%;
 }
 
-canvas {
+iframe {
     max-width: 100%;
 }
 
@@ -38,7 +38,7 @@ canvas {
     text-shadow: 0 5px 15px red;
 }
 
-.game-canvas {
+iframe {
     width: 80vw;
     height: 70vh;
 }
