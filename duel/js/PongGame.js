@@ -1,62 +1,72 @@
-// PongGame.js
-const canvas = document.getElementById("pongCanvas");
-const ctx = canvas.getContext("2d");
+const canvas = document.getElementById('game-canvas');
+const ctx = canvas.getContext('2d');
 
-// Paddle
-const paddleWidth = 10;
-const paddleHeight = 60;
-let leftPaddleY = canvas.height / 2 - paddleHeight / 2;
-let rightPaddleY = canvas.height / 2 - paddleHeight / 2;
+// Simulated game state
+const gameState = {
+    player1: {
+        name: 'Player 1',
+        level: 1,
+        profilePicture: 'profile-picture.jpg',
+        activePower: 50,
+        health: 80,
+    },
+    // Add similar properties for player2
+};
 
-// Ball
-const ballSize = 10;
-let ballX = canvas.width / 2;
-let ballY = canvas.height / 2;
-let ballSpeedX = 5;
-let ballSpeedY = 5;
-
-function draw() {
-    // Clear canvas
+function drawHUD() {
+    // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw paddles
-    ctx.fillStyle = "#FFFFFF";
-    ctx.fillRect(0, leftPaddleY, paddleWidth, paddleHeight);
-    ctx.fillRect(canvas.width - paddleWidth, rightPaddleY, paddleWidth, paddleHeight);
+    // Draw player information
+    ctx.fillStyle = '#000';
+    ctx.font = '20px Arial';
+    ctx.fillText(`${gameState.player1.name} - Level ${gameState.player1.level}`, 20, 30);
 
-    // Draw ball
-    ctx.beginPath();
-    ctx.arc(ballX, ballY, ballSize, 0, Math.PI * 2);
-    ctx.fillStyle = "#FFFFFF";
-    ctx.fill();
-    ctx.closePath();
+    // Draw profile picture
+    const profileImage = new Image();
+    profileImage.src = gameState.player1.profilePicture;
+    profileImage.onload = () => {
+        ctx.drawImage(profileImage, 20, 40, 40, 40);
+    };
 
-    // Move ball
-    ballX += ballSpeedX;
-    ballY += ballSpeedY;
+    // Draw active power
+    ctx.fillText(`Active Power: ${gameState.player1.activePower}%`, canvas.width - 200, 30);
 
-    // Ball collision with walls
-    if (ballY + ballSize > canvas.height || ballY - ballSize < 0) {
-        ballSpeedY = -ballSpeedY;
-    }
+    // Draw health bar
+    ctx.fillStyle = '#ddd';
+    ctx.fillRect(20, canvas.height - 60, 100, 20); // Background
+    ctx.fillStyle = '#ff6262';
+    const healthWidth = (gameState.player1.health / 100) * 100;
+    ctx.fillRect(20, canvas.height - 60, healthWidth, 20);
 
-    // Ball collision with paddles
-    if (
-        (ballX - ballSize < paddleWidth && ballY > leftPaddleY && ballY < leftPaddleY + paddleHeight) ||
-        (ballX + ballSize > canvas.width - paddleWidth && ballY > rightPaddleY && ballY < rightPaddleY + paddleHeight)
-    ) {
-        ballSpeedX = -ballSpeedX;
-    }
-
-    // Update game
-    requestAnimationFrame(draw);
+    // Draw controls (mocked with text for simplicity)
+    ctx.fillStyle = '#000';
+    ctx.font = '16px Arial';
+    ctx.fillText('Controls:', 20, canvas.height - 30);
+    ctx.fillText('Left: A', 20, canvas.height - 10);
+    ctx.fillText('Jump: Space', 120, canvas.height - 10);
+    ctx.fillText('Right: D', 250, canvas.height - 10);
 }
 
-// Handle touch events for mobile controls
-document.addEventListener("touchmove", (e) => {
-    const touchY = e.touches[0].clientY - canvas.getBoundingClientRect().top;
-    leftPaddleY = Math.min(canvas.height - paddleHeight, Math.max(0, touchY - paddleHeight / 2));
-});
+function updateGame() {
+    // Simulate changes in game state
+    gameState.player1.health -= 0.5;
+    // Add similar updates for other properties and player2
 
-// Start the game
-draw();
+    // Draw the updated HUD
+    drawHUD();
+
+    // Check for game over conditions, handle victory/defeat scenarios
+    if (gameState.player1.health <= 0 || gameState.player2.health <= 0) {
+        alert('Game Over!');
+    }
+
+    // Repeat the updateGame function
+    requestAnimationFrame(updateGame);
+}
+
+// Initial draw
+drawHUD();
+
+// Start the game loop
+updateGame();
