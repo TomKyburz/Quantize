@@ -25,7 +25,7 @@ body {
     max-width: 100%;
 }
 
-iframe {
+canvas {
     max-width: 100%;
 }
 
@@ -38,7 +38,7 @@ iframe {
     text-shadow: 0 5px 15px red;
 }
 
-iframe {
+canvas {
     width: 80vw;
     height: 70vh;
 }
