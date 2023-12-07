@@ -38,7 +38,7 @@ canvas {
     text-shadow: 0 5px 15px red;
 }
 
-embed {
+canvas {
     width: 80vw;
     height: 70vh;
 }
