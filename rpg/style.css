@@ -25,7 +25,7 @@ body {
     max-width: 100%;
 }
 
-canvas {
+embed {
     max-width: 100%;
 }
 
@@ -38,7 +38,7 @@ canvas {
     text-shadow: 0 5px 15px red;
 }
 
-canvas {
+embed {
     width: 80vw;
     height: 70vh;
 }
