@@ -1,1 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    background: #101010;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+    width: 80vw;
+    height: 70vh;
+    margin: 0 auto;
+    margin-top: 20px;
+    outline: rgb(66, 66, 66) solid 5px;
+    max-width: 100%;
+}
+
+canvas {
+    max-width: 100%;
+}
+
+.header {
+    color: red;
+    text-align: center;
+    margin-top: 5vh;
+    font-family: monospace;
+    font-size: 25px;
+    text-shadow: 0 5px 15px red;
+}
+
+embed {
+    width: 80vw;
+    height: 70vh;
+}
+
+.start:hover, .credits:hover { 
+    background-color: rgb(0, 0, 200)
+}
+
+.credits {
+    font-family: monospace;
+    font-size: 30px;
+    background-color: blue;
+    color: white;
+    border: none;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.start {
+    font-family: monospace;
+    font-size: 30px;
+    background-color: blue;
+    color: white;
+    border: none;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    margin: 0 auto;
+    
+}
+
+#start-screen {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.login {
+    height: 5vh;
+    background-color: rgb(24, 23, 23);
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 150px;
+    /* color: white;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 10px; */
+}
+
+.buttons {
+    margin: 0 auto;
+    width: 200px;
+    margin-top: 150px;
+}
+
+#un {
+    line-height: 1.5;
+    width: 100%;
+    font-size: 30px;
+    background: rgb(58, 58, 58);
+    color: white;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+#pw {
+    line-height: 1.5;
+    width: 100%;
+    font-size: 30px;
+    background: rgb(58, 58, 58);
+    color: white;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+}
