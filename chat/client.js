@@ -47,9 +47,9 @@
 
       input.value = ''
     }
-  } else {
+  } /* else {
     window.location.reload()
-  }
+  } */
 }
 
 chat().catch(console.error)
