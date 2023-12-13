@@ -2,7 +2,7 @@
   const form = window.document.body.querySelector('form')
   const input = window.document.body.querySelector('input')
 
-  if (res.status === 200) {
+  /* if (res.status === 200) {
     const sessionUrl = `${
       window.location.protocol === 'http:' ? 'ws' : 'wss'
     }://${window.location.hostname}${
@@ -31,8 +31,8 @@
       div.appendChild(br)
       div.appendChild(brr)
       div.appendChild(p)
-      main.scrollTop = main.scrollHeight;
-    }
+      main.scrollTop = main.scrollHeight; */
+    } 
     form.onsubmit = e => {
       e.preventDefault()
       client.send(`${input.value}`)
