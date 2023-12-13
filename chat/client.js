@@ -35,7 +35,7 @@
     } 
     form.onsubmit = e => {
       e.preventDefault()
-      client.send(`${input.value}`)
+      //client.send(`${input.value}`)
       const div = window.document.createElement('div')
       div.classList += 'sent'
       const p = window.document.createElement('p')
