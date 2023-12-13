@@ -1,8 +1,3 @@
-async function chat () {
-  const code = prompt('Access code:')
-  if (!code) window.location.reload()
-  const res = await fetch(`/validate-token/${code}`)
-
   const main = window.document.body.querySelector('main')
   const form = window.document.body.querySelector('form')
   const input = window.document.body.querySelector('input')
