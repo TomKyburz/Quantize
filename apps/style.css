@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+h1 {
+    color: white;
+}
+
 body {
     background: #101010;
     padding: 0;
