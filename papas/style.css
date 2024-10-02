@@ -23,6 +23,7 @@ body {
     margin-top: 20px;
     outline: rgb(66, 66, 66) solid 5px;
     max-width: 100%;
+    overflow: hidden;
 }
 
 canvas {
