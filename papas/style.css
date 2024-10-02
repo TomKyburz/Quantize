@@ -40,7 +40,8 @@ canvas {
 }
 
 embed {
-    width: 80vw;
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
