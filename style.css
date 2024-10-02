@@ -70,4 +70,5 @@ img {
     height: 120px;
     margin-left: 20px;
     border-radius: 50%;
+    box-shadow: 0 2px 15px rgb(255 60 52);
 }
