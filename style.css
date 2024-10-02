@@ -69,4 +69,5 @@ img {
     width: 120px;
     height: 120px;
     margin-left: 20px;
+    border-radius: 50%;
 }
