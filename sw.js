@@ -9,6 +9,7 @@ const cacheAssets = [
   '/index.html',
   '/style.css',
   '/index.js',
+  '/manifest.json',
   '*'
   // Add more assets to cache as needed
 ];
