@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+.form-container {
+    display: none;
+}
+
 h1 {
     color: red;
     font-family: monospace;
