@@ -20,6 +20,10 @@ h1 {
     margin-top: 25px;
 }
 
+#item {
+    border-radius: 25px;
+}
+
 .gamegrid > div {
     background-color: #dd0000;
     text-align: center;
