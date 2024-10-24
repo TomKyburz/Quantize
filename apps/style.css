@@ -16,7 +16,7 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     grid-gap: 50px 30px;
     padding: 0 25px;
-    justify-content: start;
+    justify-content: middle;
     margin-top: 25px;
 }
 
