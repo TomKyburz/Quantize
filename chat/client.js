@@ -2,7 +2,7 @@
   const form = window.document.body.querySelector('form')
   const input = window.document.body.querySelector('input')
 
-    form.onsubmit = e => {
+    if form.onsubmit = e => {
       e.preventDefault()
       const div = window.document.createElement('div')
       div.classList += 'sent'
