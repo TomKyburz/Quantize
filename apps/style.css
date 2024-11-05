@@ -9,9 +9,9 @@ body {
     grid-gap: 50px 30px;
     padding: 0 25px;
     justify-content: center;
-    margin-top: 25px;
     width: 80%;
     margin: auto;
+    margin-top: 25px;
 }
 
 #item {
