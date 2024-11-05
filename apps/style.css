@@ -10,8 +10,7 @@ body {
     padding: 0 25px;
     justify-content: center;
     width: 80%;
-    margin: auto;
-    margin-top: 25px;
+    margin: 25px auto auto auto;
 }
 
 #item {
