@@ -1,5 +1,5 @@
 body {
-    background-color: #7200E4;
+    background-color: #101010;
     margin: 0;
 }
 
@@ -25,7 +25,7 @@ h1 {
 }
 
 .gamegrid > div {
-    background-color: #440000;
+    background-color: #454545;
     text-align: center;
     padding: 20px 0;
 }
