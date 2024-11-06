@@ -39,12 +39,14 @@ img {
 }
 
 .App section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-  background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    background-image: url("https://images.pexels.com/photos/3308588/pexels-photo-3308588.jpeg?cs=srgb&dl=pexels-zamiir-3308588.jpg&fm=jpg");
+    background-color: #202020;
+    background-size: cover;
 }
 
 main {
@@ -146,7 +148,7 @@ p {
   text-align: left;
   max-width: 500px;
   word-wrap: break-word;
-  margin-left: 75px;
+  float: left;
 }
 
 #ltom {
