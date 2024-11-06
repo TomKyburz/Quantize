@@ -12,6 +12,10 @@ img {
   height: 64px;
 }
 
+main::-webkit-scrollbar-thumb {
+    background: #ff0000a1;
+}
+
 .App {
   text-align: center;
   max-width: 728px;
