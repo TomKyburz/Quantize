@@ -108,14 +108,14 @@ input {
 }
 
 .sent {
-  color: white;
-  align-self: flex-end;
-  background: #0071C3;
-  -webkit-border-radius: 20px 0px 20px 20px;
-  float: right;
-  text-align: left;
-  max-width: 500px;
-  word-wrap: break-word;
+    color: white;
+    align-self: flex-end;
+    background: rgb(55 159 236 / 58%);
+    -webkit-border-radius: 20px 0px 20px 20px;
+    float: right;
+    text-align: left;
+    max-width: 500px;
+    word-wrap: break-word;
 }
 
 .text {
@@ -142,13 +142,13 @@ p {
 }
 
 .receive {
-  align-self: flex-start;
-  background: #555555;
-  -webkit-border-radius: 0px 20px 20px 20px;
-  text-align: left;
-  max-width: 500px;
-  word-wrap: break-word;
-  float: left;
+    align-self: flex-start;
+    background: rgb(255 35 35 / 74%);
+    -webkit-border-radius: 0px 20px 20px 20px;
+    text-align: left;
+    max-width: 500px;
+    word-wrap: break-word;
+    float: left;
 }
 
 #ltom {
