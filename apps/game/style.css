@@ -27,6 +27,7 @@ body {
 
 canvas {
     max-width: 100%;
+    background-color: red;
 }
 
 .header {
