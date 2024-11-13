@@ -28,6 +28,8 @@ body {
 canvas {
     max-width: 100%;
     background-color: red;
+    width: 80vw;
+    height: 70vh;
 }
 
 .header {
@@ -37,11 +39,6 @@ canvas {
     font-family: monospace;
     font-size: 25px;
     text-shadow: 0 5px 15px red;
-}
-
-embed {
-    width: 80vw;
-    height: 70vh;
 }
 
 .start:hover, .credits:hover { 
