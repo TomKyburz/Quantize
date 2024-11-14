@@ -27,7 +27,8 @@ body {
 
 canvas {
     max-width: 100%;
-    background-image: url(img/IMG_0212.jpg)
+    background-image: url(img/IMG_0212.jpg);
+    background-size: cover;
     width: 80vw;
     height: 70vh;
 }
