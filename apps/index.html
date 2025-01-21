@@ -6,21 +6,33 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
-                
     <link rel="icon" type="image/png" sizes="32x32" href="/img/key.png">
 </head>
 <body>
-    <h1>QUANTIZE</h1>
+    <div class="header">
+        <a href="apps/"><div class="account"></div></a>
+        <h1>GAMES</h1>
+        <div class="c"><a href="chat"><img class="chat" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1024px-Telegram_logo.svg.png"></a></div></div>
+        <div width="250px" height="200px" class="form-container">
+</div>
 <div class="gamegrid">
     <div id="item" class="ul"><a href="papas/"><img src="img/pizzeria.WEBP"></a></div>
-    <div id="item" class="ul"><a href="game/"><img src="img/armorgames.WEBP"></a></div>  
+    <div id="item" class="ul"><a href="rpg/"><img src="img/burgeria.WEBP"></a></div>  
     <div id="item" class="ul"><a href="duel/"><img src="img/scooperia.WEBP"></a></div>
+    <div id="item" class="ul"><a href="Redball/"><img src="img/redball.png"></a></div>
+    <div id="item" class="ul"><a href="poki/"><img src="img/Soul2.WEBP"></a></div>
+    <div id="item" class="ul"><a href="jelly/"><img src="img/Run3.WEBP"></a></div>
+    <div id="item" class="ul"><a href="poki/"><img src="img/locked.png"></a></div>
+    <div id="item" class="ul"><a href="papa/"><img src="img/key.png"></a></div>
+    <div id="item" class="ul"><img class="locked" src="img/locked.png"></div>
+    <div id="item" class="ul"><img class="locked" src="img/locked.png"></div>
+    <div id="item" class="ul"><img class="locked" src="img/locked.png"></div>
+    <div id="item" class="ul"><img class="locked" src="img/locked.png"></div>
 </div>
     <script>
         if ('serviceWorker' in navigator) {
             // Register the Service Worker
-            navigator.serviceWorker.register('/service-worker.js')
+            navigator.serviceWorker.register('/sw.js')
                 .then(function(registration) {
                     console.log('Service Worker registered with scope:', registration.scope);
                 })
@@ -32,4 +44,3 @@
     <script src="js/install.js"></script>
 </body>
 </html>
-
