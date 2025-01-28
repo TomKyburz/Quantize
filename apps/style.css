@@ -1,4 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/minecraft-4');
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+@import "https://unpkg.com/open-props/buttons.min.css" layer(demo.support);
 
 body {
     background-color: #101010;
