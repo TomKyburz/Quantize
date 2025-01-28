@@ -71,21 +71,18 @@ h1 {
   }
   
   .card {
-    background: var(--surface-2);
+    background-color: crimson;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: var(--text-1);
+    color: white;
   }
 
   p {
-    color: var(--text-2);
+    color: white;
   }
   
   button {
-    --_bg: var(--surface-2);
-    --_border: var(--surface-1);
-    --_highlight: color-mix(in oklab, var(--text-2), transparent 75%);
     box-shadow: 0 0 0 var(--_highlight-size) var(--_highlight);
     padding: var(--size-2);
     border-radius: var(--radius-round);
@@ -96,11 +93,6 @@ h1 {
   .pagination > a {
     background: var(--surface-2);
   }
-  
-  a {
-    text-decoration-color: var(--focus);
-  }
-}
 
 @layer demo.scroll-driven-animation {
   :root {
