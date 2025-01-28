@@ -32,6 +32,274 @@ h1 {
     margin-top: 135px;
 }
 
+@layer demo.color {
+  /* type safe angle prop for use with SDA */
+  @property --hue {
+    syntax: '<angle>';
+    initial-value: 0turn;
+    inherits: false;
+  }
+
+  /* will animate the angle prop 1 full turn */
+  @keyframes hue-cycle { to {
+    --hue: 1turn;
+  }}
+  
+  :root {
+    /* dynamic color props, hue powered by scroll */
+    /* with oklch, keep lightness (L) ~50-60% different between surface and text, for good contrast across hues */
+    --surface-1: oklch(40% 50% var(--hue));
+    --surface-2: oklch(50% 40% var(--hue));
+    --text-1: oklch(98% 10% var(--hue));
+    --text-2: oklch(95% 20% var(--hue));
+    --link: oklch(99% 10% var(--hue));
+    --link-visited: oklch(90% 40% var(--hue));
+    --focus: oklch(80% 90% var(--hue));
+
+    /* fallback for if @property isnt supported */
+    --hue: 275;
+    
+    background: radial-gradient(farthest-corner circle at bottom center in oklab, 
+      oklch(from var(--surface-2) calc(l * 1.25) c h),
+      var(--surface-1)
+    ) fixed no-repeat;
+  }
+  
+  /* this section uses those dynamic color props on elements */
+  :focus-visible {
+    outline-color: var(--focus);
+  }
+  
+  .card {
+    background: var(--surface-2);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-1);
+  }
+
+  p {
+    color: var(--text-2);
+  }
+  
+  button {
+    --_bg: var(--surface-2);
+    --_border: var(--surface-1);
+    --_highlight: color-mix(in oklab, var(--text-2), transparent 75%);
+    box-shadow: 0 0 0 var(--_highlight-size) var(--_highlight);
+    padding: var(--size-2);
+    border-radius: var(--radius-round);
+    aspect-ratio: var(--ratio-box);
+    transition: box-shadow 145ms var(--ease-4), outline-offset 145ms var(--ease-4);
+  }
+  
+  .pagination > a {
+    background: var(--surface-2);
+  }
+  
+  a {
+    text-decoration-color: var(--focus);
+  }
+}
+
+@layer demo.scroll-driven-animation {
+  :root {
+    overflow-x: auto;
+    overscroll-behavior: contain;
+    
+    /* be a snap scroller on x */
+    scroll-snap-type: x mandatory;
+    
+    /* scroll snap sections */
+    & body > section {
+      scroll-snap-align: start;
+    }
+    
+    @supports (animation-timeline: scroll()) {
+      /* animate the --hue prop using the keyframes */
+      animation: hue-cycle linear both;
+
+      /* animation progress is the full page scroll range */
+      animation-timeline: scroll(x); 
+    }
+  }
+  
+  /* pagination dots effect */
+  /* scaled out, until in view, then scale 1 */
+  @keyframes dot-selected { 
+    0%, 100% {
+      scale: .75;
+    }
+    50% {
+      scale: 1;
+      background: var(--text-2);
+    }
+  }
+
+  /* expose the following view timelines for any elements to observe by name */
+  body {
+    timeline-scope: 
+      --section-1, 
+      --section-2, 
+      --section-3
+    ;
+  }
+
+  /* give each section it's relevant view timeline name */
+  /* note: this must match the name exposed on the body timeline-scope */
+  #section-1 { view-timeline: --section-1 x }
+  #section-2 { view-timeline: --section-2 x }
+  #section-3 { view-timeline: --section-3 x }
+
+  .pagination > a {
+    @supports (animation-timeline: scroll()) {
+      animation: dot-selected linear both;  
+    }
+
+    /* power the scale animation by observing a relevant view timeline */
+    &:nth-child(1) { animation-timeline: --section-1 }
+    &:nth-child(2) { animation-timeline: --section-2 }
+    &:nth-child(3) { animation-timeline: --section-3 }
+  }
+  
+  /* card entry/exit animations */
+  @keyframes fancy-in {
+    0% {
+      transform: translateX(25vw);
+    }
+    20%, 80% {
+      opacity: 1;
+      transform: none;
+    }
+    100% {
+      transform: translateX(90%) scale(.98);
+      opacity: 0;
+    }
+  }
+  
+  .card {
+    @media (prefers-reduced-motion: no-preference) {
+      @supports (animation-timeline: scroll()) {
+        animation: fancy-in linear both;
+        animation-timeline: view(x);
+      }
+    }
+  }
+  
+  /* fade in/out of the next/previous buttons */
+  @keyframes toggle-control {
+    50% { 
+      opacity: 0 
+    }
+  }
+
+  .controls {
+    & > button {
+      /* if supported, enable the visibility toggling animation */
+      @supports (animation-timeline: scroll()) {
+        animation: toggle-control linear both;
+      }
+
+      /* fade out the previous button when section 1 is in view */
+      &.previous {
+        animation-timeline: --section-1;
+      }
+
+      /* fade out the next button when at the last section */
+      &.next {
+        animation-timeline: --section-7;
+      }
+    }
+  }
+}
+
+@layer demo.support {
+  body {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100vw;
+  }
+  
+  .pagination {
+    position: fixed;
+    z-index: 1;
+    inset-inline: 0;
+    inset-block-end: var(--size-5);
+    display: flex;
+    place-content: center;
+    gap: var(--size-3);
+    padding: var(--size-3);
+    
+    & > a {
+      display: inline-flex;
+      place-content: center;
+      inline-size: 2ch;
+      flex-shrink: 0;
+      aspect-ratio: var(--ratio-square);
+      border-radius: var(--radius-round);
+      overflow: hidden;
+      text-indent: 100vw;
+      
+      &:is(:hover, :focus-visible) {
+        outline: 1px dashed var(--focus);
+        outline-offset: 2px;
+      }
+      
+      &:visited {
+        background: inherit !important;
+      }
+    }
+  }
+  
+  .controls {
+    position: fixed;
+    z-index: 1;
+    inset-block-start: calc(50% - var(--size-5) / 2);
+    inset-inline: var(--size-3);
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  section {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(20ch, min(30ch, 25cqi)));
+    gap: var(--size-5);
+    padding: var(--size-5);
+    
+    & > * {
+      display: grid;
+      grid-row: span 4; 
+      grid-template-rows: subgrid; 
+      gap: var(--size-2);
+    }
+  }
+  
+  .card {
+    border: 1px solid transparent;
+    padding-block: var(--size-5);
+    padding-inline: var(--size-7);
+    border-radius: var(--radius-3);
+    
+    & > a {
+      white-space: nowrap;
+      justify-self: start;
+    }
+    
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform .5s var(--ease-spring-3);
+      
+      &:focus-within {
+        transform: translateY(-10px);
+      }
+    }
+  }
+  
+  article > img {
+    opacity: .75;
+  }
+}
+
 .gamegrid > div {
     background-color: #2f2f2f;
     text-align: center;
