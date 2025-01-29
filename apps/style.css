@@ -35,6 +35,8 @@ h1 {
 
 .card {
     background-color: #2f2f2f;
+    padding: 20px 0;
+    border-radius: 25px;
 }
 
 .gamegrid > div {
