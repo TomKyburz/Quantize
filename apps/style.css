@@ -35,6 +35,11 @@ h1 {
     margin-right: 25px;
 }
 
+.preview {
+    background-color: crimson;
+    width: 100%;
+}
+
 .card {
     background-color: #2f2f2f;
     padding: 20px 0;
