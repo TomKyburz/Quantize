@@ -26,6 +26,10 @@ h1 {
     grid-gap: 50px 30px;
     padding: 0 25px;
     justify-content: start;
+    margin-top: 35px;
+}
+
+.section-1 {
     margin-top: 135px;
 }
 
