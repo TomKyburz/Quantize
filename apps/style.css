@@ -40,6 +40,10 @@ h1 {
     width: 100%;
 }
 
+p {
+    padding: 20px;
+}
+
 .card {
     background-color: #2f2f2f;
     padding: 20px 0;
