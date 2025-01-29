@@ -45,26 +45,6 @@ h1 {
     --hue: 1turn;
   }}
   
-  :root {
-    /* dynamic color props, hue powered by scroll */
-    /* with oklch, keep lightness (L) ~50-60% different between surface and text, for good contrast across hues */
-    --surface-1: oklch(40% 50% var(--hue));
-    --surface-2: oklch(50% 40% var(--hue));
-    --text-1: oklch(98% 10% var(--hue));
-    --text-2: oklch(95% 20% var(--hue));
-    --link: oklch(99% 10% var(--hue));
-    --link-visited: oklch(90% 40% var(--hue));
-    --focus: oklch(80% 90% var(--hue));
-
-    /* fallback for if @property isnt supported */
-    --hue: 275;
-    
-    background: radial-gradient(farthest-corner circle at bottom center in oklab, 
-      oklch(from var(--surface-2) calc(l * 1.25) c h),
-      var(--surface-1)
-    ) fixed no-repeat;
-  }
-  
   /* this section uses those dynamic color props on elements */
   :focus-visible {
     outline-color: var(--focus);
@@ -83,19 +63,12 @@ h1 {
   }
   
   button {
-    box-shadow: 0 0 0 var(--_highlight-size) var(--_highlight);
-    padding: var(--size-2);
-    border-radius: var(--radius-round);
-    aspect-ratio: var(--ratio-box);
+    box-shadow: 0 0 0 crimson;
+    border-radius: 50%;
     transition: box-shadow 145ms var(--ease-4), outline-offset 145ms var(--ease-4);
-  }
-  
-  .pagination > a {
-    background: var(--surface-2);
   }
 
 @layer demo.scroll-driven-animation {
-  :root {
     overflow-x: auto;
     overscroll-behavior: contain;
     
@@ -114,7 +87,6 @@ h1 {
       /* animation progress is the full page scroll range */
       animation-timeline: scroll(x); 
     }
-  }
   
   /* pagination dots effect */
   /* scaled out, until in view, then scale 1 */
@@ -199,19 +171,14 @@ h1 {
 
       /* fade out the next button when at the last section */
       &.next {
-        animation-timeline: --section-7;
+        animation-timeline: --section-3;
       }
     }
   }
 }
 
 @layer demo.support {
-  body {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 100vw;
-  }
-  
+ 
   .pagination {
     position: fixed;
     z-index: 1;
@@ -253,18 +220,7 @@ h1 {
   }
   
   section {
-    display: grid;
-    place-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(20ch, min(30ch, 25cqi)));
-    gap: var(--size-5);
     padding: var(--size-5);
-    
-    & > * {
-      display: grid;
-      grid-row: span 4; 
-      grid-template-rows: subgrid; 
-      gap: var(--size-2);
-    }
   }
   
   .card {
