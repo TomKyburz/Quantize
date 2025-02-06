@@ -9,24 +9,30 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/img/key.png">
 </head>
 <body>
-    <div class="header">
-        <a href="apps/"><div class="account"></div></a>
-        <h1>GAMES</h1>
-        <div class="c"><a href="chat"><img class="chat" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1024px-Telegram_logo.svg.png"></a></div></div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" style="cursor:pointer;" class="closebtn" onclick="closeNav()"><img class="x" src="https://quantize.me/img/xicon.webp"></a>
+        <a href="#">About</a>
+        <a href="../chat/">Chat</a>
+        <a href="gt.html">Contact</a>
+        <a href="glitchtracker.html">Bug Tracker</a>
+      </div>
 
-</div>
+    <div class="header">
+        <div class="account" style="cursor:pointer;" onclick="openNav()"><img class="burger" src="https://quantize.me/img/burgericon.png"></div>
+        <h1>GAMES</h1>
+        <div class="c"><a href="gt.html"><img src="../img/key.png" class="chat"></div></a></div></div>
 
 <section class="section-1">
   <article class="card">
       <div class="preview"></div>
-    <p>Lorem ipsum dolor sit amet</p>
-    <p><a href="https://quantize.me">Check it out</a></p>
+    <p id="previewtxt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at purus ut tellus luctus malesuada non eget sapien. Quisque tempor enim vitae purus condimentum pulvinar. Integer vel dui id metus ultrices malesuada et eu mi. Nunc feugiat imperdiet metus non porttitor. Proin viverra sodales gravida. Praesent feugiat massa at velit feugiat tincidunt. Pellentesque non nibh ac tellus iaculis vehicula. Suspendisse sed nisi sodales, finibus leo quis, suscipit mi. Phasellus feugiat sapien ut velit tempor, eget cursus lacus viverra.</p>
+    <p id="link"><a id="checkio" href="https://quantize.me">Check it out</a></p>
   </article>
 </section>
     
 <div class="gamegrid">
-    <a id="item" href="/rpg"><div id="item" style="background-color: crimson;">Open world RPG</div></a>
-    <a id="item" href="/rpg"><div id="item" style="background-color: hotpink;">RACING</div></a>
+    <a id="item" href="/rpg"><div id="item" style="background-color: crimson;"></div></a>
+    <a id="item" href="/rpg"><div id="item" style="background-color: hotpink;"></div></a>
     <a id="item" href="/rpg"><div id="item" style="background-color: aquamarine;"></div></a>
     <a id="item" href="/rpg"><div id="item" style="background-color: tomato;"></div></a>
     <a id="item" href="/rpg"><div id="item" style="background-color: peachpuff;"></div></a>
@@ -38,6 +44,17 @@
     <div id="item"><img class="locked" src="../img/locked.png"></div>
     <div id="item"><img class="locked" src="../img/locked.png"></div>
 </div>
+
+<script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+
     <script>
         if ('serviceWorker' in navigator) {
             // Register the Service Worker

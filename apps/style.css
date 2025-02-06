@@ -20,6 +20,24 @@ h1 {
     height: 60px;
 }
 
+#link {
+    margin: 0;
+    padding-top: 0;
+    height: 40px;
+}
+
+#checkio {
+    color: #818181;
+    font-family: 'Minecraft';
+    font-size: 35px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#checkio:hover {
+    color: #f1f1f1;
+}
+
 .gamegrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -44,7 +62,9 @@ h1 {
 }
 
 p {
-    padding: 20px;
+    padding: 0 20px 0 20px;
+    color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .card {
@@ -64,7 +84,6 @@ img {
 }
 
 .header {
-    z-index: 12;
     position: fixed;
     background: #2f2f2fad;
     backdrop-filter: blur(8px);
@@ -126,13 +145,64 @@ img {
 
 .account {
     margin-left: 25px;
+    font-size: 85px;
     width: 85px;
     height: 85px;
     border-radius: 50%;
-    background-color: crimson;
     /* background-image: url(img/Adam.jpg); */
     /* -webkit-box-shadow: 0px 10px 40px 10px rgba(251,59,52,0.75); */
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
 }
+
+.burger {
+    width: 85px;
+    height: 85px;
+}
+
+.x {
+    width: 25px;
+    height: 25px;
+}
+
+.sidenav {
+    z-index: 12;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.6s;
+    padding-top: 60px;
+    background-color: #2f2f2f;
+}
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-family: "Minecraft", sans-serif;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
