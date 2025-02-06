@@ -20,7 +20,7 @@
     <div class="header">
         <div class="account" style="cursor:pointer;" onclick="openNav()"><img class="burger" src="https://quantize.me/img/burgericon.png"></div>
         <h1>GAMES</h1>
-        <div class="c"><div onClick="openAccount()"><img src="../img/key.png" class="chat"></div></div></div></div>
+        <div class="c"><div onClick="toggleAccount()"><img src="../img/key.png" class="chat"></div></div></div></div>
 
 <section class="section-1">
   <article class="card">
@@ -45,7 +45,7 @@
     <div id="item"><img class="locked" src="../img/locked.png"></div>
 </div>
 
-<div class="page">
+<div class="page" onclick="closeAccount()">
   <div class="contain">
 <div class="model-container" id="myAccount" style="display:none;">
   <!-- <button class="modeldimexit"></button> -->
@@ -80,7 +80,7 @@
 </div>
 
 <script>
-    function openAccount() {
+    function toggleAccount() {
       var x = document.getElementById("myAccount");
       if (x.style.display === "none") {
     x.style.display = "block";
@@ -88,7 +88,12 @@
     x.style.display = "none";
   }
 }
-
+    function closeAccount() {
+        var x = document.getElementById("myAccount");
+        if (x.style.display === "block") {
+        x.style.display = "none;
+    }
+}   
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
     }
