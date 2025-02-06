@@ -2,8 +2,6 @@
 
 body {
     background-color: white;
-    font-family: "Minecraft", sans-serif;
-    color: white;
     margin: 0;
 }
 
@@ -23,6 +21,8 @@ body {
 }
 
 .page {
+    font-family: "Minecraft", sans-serif;
+    color: white;
     position: absolute;
     z-index: 52;
     top: 0;

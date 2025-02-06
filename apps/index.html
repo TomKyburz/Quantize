@@ -20,7 +20,7 @@
     <div class="header">
         <div class="account" style="cursor:pointer;" onclick="openNav()"><img class="burger" src="https://quantize.me/img/burgericon.png"></div>
         <h1>GAMES</h1>
-        <div class="c"><a href="gt.html"><img src="../img/key.png" class="chat"></div></a></div></div>
+        <div class="c"><div onClick="openAccount()"><img src="../img/key.png" class="chat"></div></div></div></div>
 
 <section class="section-1">
   <article class="card">
@@ -45,7 +45,50 @@
     <div id="item"><img class="locked" src="../img/locked.png"></div>
 </div>
 
+<div class="page">
+  <div class="contain">
+<div class="model-container" id="myAccount" style="display:none;">
+  <!-- <button class="modeldimexit"></button> -->
+  <div class="modelcontent">
+      <div class="modelheader"><h1 class="h1account">ACCOUNT</h1></div>
+      <div class="profileview">
+          <div class="profileimageframe">
+              <div class="profileimage"><img src="https://quantize.me/img/key.png" class="pfp">
+                </div>
+          </div>
+
+          <div class="profilename">Tom Kyburz</div>
+
+          <div class="profiledetails">
+          <div class="profiledetail">Username LyteKey</div>
+
+          <div class="profiledetail">Email kyburztom@gmail.com</div></div>
+
+          <div class="proceedbuttons">
+              <div class="bdivider"><button class="proceedbutton">Account</button></div>
+              <div class="bdivider"><button class="proceedbutton">Sign In</button></div>
+              <div class="bdivider"><button class="proceedbutton">Support</button></div>
+          </div>
+
+          <section>
+              <div class="signout"></div>
+          </section>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
 <script>
+    function openAccount() {
+      var x = document.getElementById("myAccount");
+      if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
     }
