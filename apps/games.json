@@ -1,0 +1,46 @@
+{
+  "games": [
+    {
+      "name": "papaspizzeria",
+      "logo": "quantize.me/img/pizzeria.WEBP",
+      "banner": "https://example.com/images/game1_banner.jpg",
+      "gametype": "timemanagement"
+    },
+    {
+      "name": "papasburgeria",
+      "logo": "quantize.me/img/burgeria.WEBP",
+      "banner": "https://example.com/images/game2_banner.jpg",
+      "gametype": "timemanagement"
+    },
+    {
+      "name": "papasscooperia",
+      "logo": "quantize.me/img/scooperia.WEBP",
+      "banner": "https://example.com/images/game3_banner.jpg",
+      "gametype": "timemanagement"
+    },
+    {
+      "name": "redball4",
+      "logo": "quantize.me/img/redball.png",
+      "banner": "https://example.com/images/game4_banner.jpg",
+      "gametype": "platformer"
+    },
+    {
+      "name": "roguesoul2",
+      "logo": "quantize.me/img/Soul2.WEBP",
+      "banner": "https://example.com/images/game5_banner.jpg",
+      "gametype": "platformer"
+    },
+    {
+      "name": "run3",
+      "logo": "quantize.me/img/Run3.WEBP",
+      "banner": "https://example.com/images/game6_banner.jpg",
+      "gametype": "endlessrunner"
+    },
+    {
+      "name": "papalouie3",
+      "logo": "quantize.me/img/key.png",
+      "banner": "https://example.com/images/game6_banner.jpg",
+      "gametype": "platformer"
+    }
+  ]
+}

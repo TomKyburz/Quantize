@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+    <title>Quantize</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/key.png">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" style="cursor:pointer;" class="closebtn" onclick="closeNav()"><img class="x" src="https://quantize.me/img/xicon.webp"></a>
+        <a href="#">About</a>
+        <a href="../chat/">Chat</a>
+        <a href="gt.html">Contact</a>
+        <a href="glitchtracker.html">Bug Tracker</a>
+      </div>
+
+    <div class="header">
+        <div class="account" style="cursor:pointer;" onclick="openNav()"><img class="burger" src="https://quantize.me/img/burgericon.png"></div>
+        <h1>GAMES</h1>
+        <div class="c"><div onclick="toggleAccount()"><img src="../img/key.png" class="chat"></div></div></div></div>
+
+<section class="section-1">
+  <article class="card">
+      <div class="preview"></div>
+    <p id="previewtxt">RoboLyte, RoboRPG, RoboHub, RoboRacing, RoboPlatformer (RoboSpace), RoboWorld, CyberRoboSpace, </p>
+    <p id="link"><a id="checkio" href="https://quantize.me">Check it out</a></p>
+  </article>
+</section>
+    
+<div class="gamegrid">
+    <a id="item" href="/apps/game/?title=Papa's Pizzeria&file=/apps/game/papaspizzeria.swf"><div id="item" style="background-color: crimson;"><img id="gameicon" style="width:230px;height:208px;" src="https://gamegfx.spielaffe.de/images/game/364/364054/37896_papas-pizzeria.png"></div></a>
+    <a id="item" href="/apps/game/?title=Papa's Burgeria&file=/apps/game/papasburgeria.swf"><div id="item" style="background-color: hotpink;"><img id="gameicon" src="//gamegfx.spielaffe.de/images/game/402/402034/35424_papas-burgeria-rcm186x186u.png"></div></a>
+    <a id="item" href="/apps/game/?title=Papa's Scooperia&file=/apps/game/papasscooperia.swf"><div id="item" style="background-color: aquamarine;"><img id="gameicon" src="//gamegfx.spielaffe.de/images/game/1033/1033000/36426_papas-scooperia-rcm186x186u.png"></div></a>
+    <a id="item" href="/apps/game/?title=Redball 4&file=/apps/game/.swf"><div id="item" style="background-color: tomato;"><img id="gameicon" src="https://quantize.me/img/redball.png"></div></a>
+    <a id="item" href="/apps/game/?title=Rogue Soul 2&file=/apps/game/rogue-soul-2-game.swf"><div id="item" style="background-color: peachpuff;"><img id="gameicon" src="https://quantize.me/img/roguesoul2.jpg"></div></a>
+    <a id="item" href="/apps/game/?title=Run 3&file=/apps/game/Run 3.swf"><div id="item" style="background-color: fuchsia;"><img id="gameicon" src="https://quantize.me/img/run3.png"></div></a>
+    <a id="item" href="/apps/game/?title=Papa Louie 3&file=/apps/game/papalouie3.swf&width=700&height=416"><div id="item" style="background-color: deepskyblue;"><img id="gameicon" src="https://quantize.me/img/papalouie3.jpg"></div></a>
+    <a id="item" href="/apps/game/?title=Papa's Burgeria&file=/apps/game/papasburgeria.swf"><div id="item" style="background-color: indigo;"></div></a>
+    <div id="item"><img class="locked" src="../img/locked.png"></div>
+    <div id="item"><img class="locked" src="../img/locked.png"></div>
+    <div id="item"><img class="locked" src="../img/locked.png"></div>
+    <div id="item"><img class="locked" src="../img/locked.png"></div>
+</div>
+
+<div class="page">
+<!--     onclick="closeAccount()" -->
+  <div class="contain">
+  <div class="overlay" onclick="toggleAccount()" id="overlay"></div>    
+<div class="model-container" id="myAccount" style="display:none;">
+  <!-- <button class="modeldimexit"></button> -->
+  <div class="modelcontent" onclick="event.stopPropagation()">
+      <div class="modelheader"><h1 class="h1account">ACCOUNT</h1></div>
+      <div class="profileview">
+          <div class="profileimageframe">
+              <div class="profileimage"><img src="https://quantize.me/img/key.png" class="pfp">
+                </div>
+          </div>
+
+          <div class="profilename">Tom Kyburz</div>
+
+          <div class="profiledetails">
+          <div class="profiledetail">Username LyteKey</div>
+
+          <div class="profiledetail">Email kyburztom@gmail.com</div></div>
+
+          <div class="proceedbuttons">
+              <div class="bdivider"><button class="proceedbutton">Account</button></div>
+              <div class="bdivider"><button class="proceedbutton">Sign In</button></div>
+              <div class="bdivider"><button class="proceedbutton">Support</button></div>
+          </div>
+
+          <section>
+              <div class="signout"></div>
+          </section>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+<script>
+    function toggleAccount() {
+      var x = document.getElementById("myAccount");
+      var y = document.getElementById("overlay");
+      if (x.style.display === "none") {
+    x.style.display = "block";
+    y.style.display = "block";
+  } else {
+    x.style.display = "none";
+    y.style.display = "none";
+  }
+}
+    function closeAccount() {
+        var x = document.getElementById("myAccount");
+        if (x.style.display === "block") {
+        x.style.display = "none";
+    }
+}   
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            // Register the Service Worker
+            navigator.serviceWorker.register('/sw.js')
+                .then(function(registration) {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(function(error) {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+    <script src="js/install.js"></script>
+</body>
+</html>
