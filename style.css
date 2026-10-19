@@ -7,99 +7,64 @@ body {
     background: linear-gradient(90deg, #000000, #219300, #000000);
 }
 
-h1 {
-    color: lightgrey;
-    font-family: "Minecraft", sans-serif;
-    text-align: center;
-    font-size: 60px;
-    margin: 0;
-    height: 60px;
-}
-.section-1 {
-  margin-top: 135px;
-  padding: 0 200px;
-}
-
-.preview {
-  background-image: url("/img/key.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: -1;
-  background-color: #ffffff05;
-  background-position: center;
-  border-radius: 25px 25px 0 0;
-  height: 200px;
+.header {
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  position: fixed;
+  background: #2f2f2f67;
+  backdrop-filter: blur(8px);
+  width: 100%;
+  display: flex;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  color: lightgrey;
+  font-family: "Minecraft", sans-serif;
+  font-size: 1.5em;
 }
 
-.gamegrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    grid-gap: 25px 20px;
-    justify-content: start;
-    margin: 0 auto;
-    margin-top: 50px;
-    overflow: hidden;
-}
-
-
-p {
-    padding: 0 20px 0 20px;
-    color: lightgrey;
-    font-family: Arial, Helvetica, sans-serif;
+#wrapper {
+  display: flex;
+  width: 100%;
+  background-color: #696969;
+  flex-direction: column;
+  margin-top: 10vh;
+  align-items: center;
 }
 
 .card {
     background-color: #2f2f2f;
-    padding-bottom: 20px;
+    padding: 10px;
     border-radius: 25px;
+    margin: 15px;
+    width: 60%;
 }
 
-
-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 30px;
-}
-
-.header {
-    position: fixed;
-    background: #2f2f2fad;
-    backdrop-filter: blur(8px);
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    flex-flow: wrap;
-    box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+.gamegrid {
+    display: grid;
+    grid-template-columns: repeat(5, max-content);
+    grid-gap: 25px 20px;
+    margin: 15px auto;
+    overflow: hidden;
+    justify-items: center;
 }
 
 #item {
-    width: 230px;
-    height: 160px;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 25px;
-    background-color: #2f2f2f;
-    text-align: center;
-    padding: 20px 0;
-    overflow: hidden;
+  background-color: red;
+  padding: 16px 4px;
+  width: 15vw;
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 10px;
 }
 
-#gameicon {
-    width: 230px;
-    height: 208px;
+h2 {
+  font-size: 2.5em;
+  text-align: center;
+  color: lightgrey;
+  font-family: "Minecraft", sans-serif;
 }
 
-
-button {
-    font-family: "Minecraft", sans-serif;
-    color: white;
-    border-color: grey;
+h2:hover {
+  color: #d3d3d3ad;
 }
