@@ -1,0 +1,26 @@
+{
+  "electricman2": {
+    "icon": "icon",
+    "name": "Electric man 2"
+  },
+  "papalouie3": {
+    "icon": "icon",
+    "name": "Papa Louie 3"
+  },
+  "papaspizzeria": {
+    "icon": "icon",
+    "name": "Papa's Pizzeria"
+  },
+  "roguesoul": {
+    "icon": "icon",
+    "name": "Rogue Soul"
+  },
+  "roguesoul2": {
+    "icon": "icon",
+    "name": "Rogue Soul 2"
+  },
+  "run3": {
+    "icon": "icon",
+    "name": "Run 3"
+  }
+}

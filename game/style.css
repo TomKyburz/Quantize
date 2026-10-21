@@ -14,13 +14,9 @@ body {
 }
 
 #game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    position: relative;
     height: 80vh;
-    /* aspect-ratio: 4/3; */
+    background-color: red;
+    aspect-ratio: 4/3;
     max-width: 90vw;
     flex-shrink: 0;
 }
@@ -129,10 +125,3 @@ ruffle-player {
   height: 100% !important;  /* force match container */
   display: block;
 }
-
-
-
-
-
-
-
