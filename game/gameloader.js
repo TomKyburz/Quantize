@@ -22,12 +22,12 @@ console.log(flashgame)
 
 const gameSelect = document.getElementById('options');
 
-gameSelect.addEventListener('change', function() {
-    const selectedValue = this.value;
-    if (selectedValue !== "") {
-        window.location.search = `?swf=${selectedValue}`;
-    }
-});
+// gameSelect.addEventListener('change', function() {
+//     const selectedValue = this.value;
+//     if (selectedValue !== "") {
+//         window.location.search = `?swf=${selectedValue}`;
+//     }
+// });
 
 window.onload = async function() {
   if (flashgame !== "notgame") {
