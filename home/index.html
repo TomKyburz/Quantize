@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/js/three.module.js",
+        "three/addons/": "/quantize/js/"
+      }
+    }
+  </script>
+    <script type="module" src="js/3dpreview.js">
+    </script>
+
+    <div class="header">
+
+        <h1>QUANTIZE</h1>
+        </div>
+<div id="wrapper">
+        <div class="world" id="world"></div>
+
+<div class="testgrid" id="testgrid">
+</div>
+</div>
+<script src="js/loadgrid.js"></script>
+
+</body>
+</html>

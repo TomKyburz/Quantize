@@ -1,0 +1,28 @@
+{
+  "apps": [
+    {
+      "name": "music",
+      "fullname": "Text Content",
+      "logo": "/img/appicon/txt.png",
+      "gametype": "timemanagement"
+    },
+    {
+      "name": "phasegame2",
+      "fullname": "Text Content",
+      "logo": "/img/appicon/whirl.png",
+      "gametype": "timemanagement"
+    },
+    {
+      "name": "picontrol",
+      "fullname": "Text Content",
+      "logo": "/img/appicon/whirl.png",
+      "gametype": "timemanagement"
+    },
+    {
+      "name": "news",
+      "fullname": "News",
+      "logo": "/img/appicon/news.png",
+      "gametype": "timemanagement"
+    }
+  ]
+}
